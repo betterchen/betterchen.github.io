@@ -6,7 +6,7 @@ Author: betterchen
 tags: [programming, golang]
 comments: true
 ---
-商业项目中常常会引用保存于私有仓库的模块。在使用Go Module进行依赖管理时，工具默认由[官方代理](Go Proxy)定向代码仓库，这时是无法访问到私有库的。但通过配置[GOPRIVATE](GOPRIVATE)环境变量，我们便可用go get命令来获取私有库中的模块了。
+商业项目中常常会引用保存于私有仓库的模块。在使用Go Module进行依赖管理时，工具默认由官方代理(https://proxy.golang.org,direct)定向代码仓库，这时是无法访问到私有库的。但通过配置[GOPRIVATE](https://golang.org/cmd/go/#hdr-Module_configuration_for_non_public_modules)环境变量，我们便可用go get命令来获取私有库中的模块了。
 
 ## 如何操作
 
@@ -17,7 +17,7 @@ comments: true
    go mod tidy # 整理
    ```
 
-2. 确保Git工具有权访问私有仓库。以GitHub为例，我们可以使用[令牌](Access Token)或[证书](SSH Auth)两种方式授权：
+2. 确保Git工具有权访问私有仓库。以GitHub为例，我们可以使用[令牌](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)或[证书](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)两种方式授权：
 
    ```shell
    # 使用令牌进行HTTPS调用时，先从GitHub获取token，然后在本地配置git命令行工具:
@@ -43,9 +43,4 @@ comments: true
 
 本文描述了如何使用GOPRIVATE访问私有仓库。同时Go mod工具也支持通过搭建代理并配置GOPROXY的方式访问，以供用户在不同场景下选择。
 
-## 链接
-
-[Go Proxy]: https://proxy.golang.org,direct
-[GOPRIVATE]: https://golang.org/cmd/go/#hdr-Module_configuration_for_non_public_modules
-[Access Token]: https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
-[SSH Auth]: https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+---
